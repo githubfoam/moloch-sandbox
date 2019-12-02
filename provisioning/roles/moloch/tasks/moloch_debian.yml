@@ -1,0 +1,39 @@
+---
+# [WARNING]: Could not find aptitude. Using apt-get instead fix
+- name: "APT: Install aptitude package"
+  apt:
+   name: aptitude
+   force_apt_get: yes
+- name: "Receive repo keys https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+- name: "Set repos https://artifacts.elastic.co/packages/5.x/apt"
+  apt_repository:
+    repo: "deb https://artifacts.elastic.co/packages/5.x/apt stable main"
+    state: present
+    filename: elastic-5.x
+- name: "Disable swapoff"
+  shell: swapoff -a
+- name: "Disable swapoff permanently"
+  replace:
+    path: /etc/fstab
+    regexp: '^(\s*)([^#\n]+\s+)(\w+\s+)swap(\s+.*)$'
+    replace: '#\1\2\3swap\4'
+    backup: yes
+- name: "Download moloch"
+  get_url:
+    url: https://files.molo.ch/builds/ubuntu-{{ ubuntu_version }}/moloch_{{ moloch_version }}_amd64.deb
+    dest: /tmp/moloch_{{ moloch_version }}_amd64.deb
+- name: "Install moloch requirements elasticsearch jre"
+  package:
+    name: "{{ moloch_debian_reqs }}"
+    state: present
+- name: "Install moloch"
+  apt:
+    deb: /tmp/moloch_{{ moloch_version }}_amd64.deb
+- name: "Ensure elasticsearch service is running"
+  service:
+    name: elasticsearch
+    state: started
+    enabled: yes

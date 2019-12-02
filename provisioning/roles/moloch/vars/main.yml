@@ -1,0 +1,7 @@
+---
+moloch_version: 1.7.0-1
+ubuntu_version: 16.04
+centos_version: 7
+
+moloch_interface: "eth1"
+moloch_elasticsearch_url: "localhost"

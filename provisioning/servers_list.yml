@@ -1,0 +1,45 @@
+---
+- vagrant_box_host: "vg-moloch-01"
+  vagrant_box: "bento/ubuntu-16.04"
+  vbox_name: "vbox-moloch-01"
+  vbox_ram: 4096
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.16.9
+  guest_port: 8005
+  host_port: 8005
+  guest_port1: 9200
+  host_port1: 9200
+  server_bootstrap: "provisioning/deploy.yml"
+  ansible_version: "2.9.1"
+  ansible_compatibility_mode: "2.0"
+
+- vagrant_box_host: "vg-moloch-02"
+  vagrant_box: "bento/centos-7.7"
+  vbox_name: "vbox-moloch-02"
+  vbox_ram: 3072
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.16.10
+  guest_port: 8005
+  host_port: 8005
+  guest_port1: 9200
+  host_port1: 9200
+  server_bootstrap: "provisioning/deploy.yml"
+  ansible_version: "2.9.1"
+  ansible_compatibility_mode: "2.0"
+
+- vagrant_box_host: "vg-moloch-03"
+  vagrant_box: "bento/ubuntu-18.04"
+  vbox_name: "vbox-moloch-03"
+  vbox_ram: 2048
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.16.11
+  guest_port: 8005
+  host_port: 8005
+  guest_port1: 9200
+  host_port1: 9200
+  server_bootstrap: "provisioning/deploy.yml"
+  ansible_version: "2.9.1" #ubuntu
+  ansible_compatibility_mode: "2.0"

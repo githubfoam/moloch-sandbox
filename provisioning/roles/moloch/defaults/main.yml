@@ -1,0 +1,29 @@
+---
+# defaults file for common
+moloch_redhat_reqs:
+  - java-1.8.0-openjdk
+  - lsof
+moloch_debian_reqs:
+  - default-jre
+  - elasticsearch
+  - wget
+  - curl
+  - libpcre3-dev
+  - uuid-dev
+  - libmagic-dev
+  - pkg-config
+  - g++
+  - flex
+  - bison
+  - zlib1g-dev
+  - libffi-dev
+  - gettext
+  - libgeoip-dev
+  - make
+  - libjson-perl
+  - libbz2-dev
+  - libwww-perl
+  - libpng-dev
+  - xz-utils
+  - libffi-dev
+  - npm
