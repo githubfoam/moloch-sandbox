@@ -13,6 +13,8 @@
     - common
 - name: "Install moloch"
   gather_facts: true
+  environment:
+    JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
   hosts: vg-moloch-01
   become: yes
   roles:

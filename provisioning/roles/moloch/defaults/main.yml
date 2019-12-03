@@ -5,7 +5,6 @@ moloch_redhat_reqs:
   - lsof
 moloch_debian_reqs:
   - default-jre
-  - elasticsearch
   - wget
   - curl
   - libpcre3-dev

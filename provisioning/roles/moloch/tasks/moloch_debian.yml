@@ -4,15 +4,17 @@
   apt:
    name: aptitude
    force_apt_get: yes
-- name: "Receive repo keys https://artifacts.elastic.co/GPG-KEY-elasticsearch"
-  apt_key:
-    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+- name: "Install moloch requirements, elasticsearch, jre"
+  package:
+    name: "{{ moloch_debian_reqs }}"
     state: present
-- name: "Set repos https://artifacts.elastic.co/packages/5.x/apt"
-  apt_repository:
-    repo: "deb https://artifacts.elastic.co/packages/5.x/apt stable main"
-    state: present
-    filename: elastic-5.x
+- name: "Download elasticsearch deb package"
+  get_url:
+    url: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elasticsearch_version }}.deb
+    dest: /tmp/elasticsearch-{{ elasticsearch_version }}.deb
+- name: "Install elasticsearch deb package from the internet."
+  apt:
+    deb: /tmp/elasticsearch-{{ elasticsearch_version }}.deb
 - name: "Disable swapoff"
   shell: swapoff -a
 - name: "Disable swapoff permanently"
@@ -25,10 +27,6 @@
   get_url:
     url: https://files.molo.ch/builds/ubuntu-{{ ubuntu_version }}/moloch_{{ moloch_version }}_amd64.deb
     dest: /tmp/moloch_{{ moloch_version }}_amd64.deb
-- name: "Install moloch requirements elasticsearch jre"
-  package:
-    name: "{{ moloch_debian_reqs }}"
-    state: present
 - name: "Install moloch"
   apt:
     deb: /tmp/moloch_{{ moloch_version }}_amd64.deb

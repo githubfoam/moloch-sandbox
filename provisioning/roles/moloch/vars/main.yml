@@ -1,5 +1,6 @@
 ---
-moloch_version: 1.7.0-1
+moloch_version: 2.1.0-1
+elasticsearch_version: 6.8.5
 ubuntu_version: 16.04
 centos_version: 7
 

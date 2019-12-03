@@ -7,7 +7,3 @@
   package:
     name: "{{ moloch_redhat_reqs }}"
     state: present
-# - name: "Install moloch"
-#   yum:
-#     name: /tmp/moloch-{{ moloch_version }}.x86_64.rpm
-#     state: present
