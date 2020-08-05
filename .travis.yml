@@ -8,21 +8,22 @@ matrix:
   fast_finish: true
   include:
 
-    - name: "deploy moloch libvirt"
-      dist: bionic
-      language: python
-      python: 3.7
-      before_install:
-        - pip3 install virtualenv
-        - virtualenv -p $(which python3) ~venvpy3
-        - source ~venvpy3/bin/activate
-        - pip install -r requirements.txt
-      script:
-          - sudo make deploy-libvirt
-          - sudo make deploy-vagrant
-          - sudo make deploy-moloch
-      after_success:
-        - deactivate       
+    #TESTED OK
+    # - name: "deploy moloch libvirt"
+    #   dist: bionic
+    #   language: python
+    #   python: 3.7
+    #   before_install:
+    #     - pip3 install virtualenv
+    #     - virtualenv -p $(which python3) ~venvpy3
+    #     - source ~venvpy3/bin/activate
+    #     - pip install -r requirements.txt
+    #   script:
+    #       - sudo make deploy-libvirt
+    #       - sudo make deploy-vagrant
+    #       - sudo make deploy-moloch
+    #   after_success:
+    #     - deactivate       
 
     - name: "deploy moloch libvirt provision bash"
       dist: bionic
@@ -36,7 +37,7 @@ matrix:
       script:
           - sudo make deploy-libvirt
           - sudo make deploy-vagrant          
-          - cd scripts && sudo vagrant init --template scripts/Vagrantfile.provision.bash.erb
+          - cd scripts && sudo vagrant init --template Vagrantfile.provision.bash.erb
           - sudo vagrant up
           - sudo vagrant ssh -c "curl localhost:8005"          
       after_success:
