@@ -1,8 +1,8 @@
 # moloch-sandbox
 
+[![Build Status](https://travis-ci.com/githubfoam/moloch-sandbox.svg?branch=master)](https://travis-ci.com/githubfoam/moloch-sandbox)  
 
 Install moloch
-
 ~~~~
 
 >vagrant up "vg-moloch-01"
