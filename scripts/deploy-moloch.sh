@@ -23,9 +23,9 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 # vagrant up --provider=libvirt "vg-compute-13"
 
 # https://github.com/chef/bento/tree/master/packer_templates/ubuntu
-# vagrant box add "bento/ubuntu-16.04" --provider=virtualbox
-# vagrant mutate "bento/ubuntu-16.04" libvirt
-# vagrant up --provider=libvirt "vg-moloch-01"
+vagrant box add "bento/ubuntu-16.04" --provider=virtualbox
+vagrant mutate "bento/ubuntu-16.04" libvirt
+vagrant up --provider=libvirt "vg-moloch-01"
 
 
 vagrant box list #veridy installed boxes
