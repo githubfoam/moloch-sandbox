@@ -36,7 +36,8 @@ matrix:
       script:
           - sudo make deploy-libvirt
           - sudo make deploy-vagrant          
-          - sudo vagrant init --template Vagrantfile.provision.bash.erb
-          - sudo vagrant up          
+          - cd scripts && sudo vagrant init --template scripts/Vagrantfile.provision.bash.erb
+          - sudo vagrant up
+          - sudo vagrant ssh -c "curl localhost:8005"          
       after_success:
         - deactivate  
