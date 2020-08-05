@@ -11,6 +11,7 @@
   guest_port1: 9200
   host_port1: 9200
   server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
   ansible_version: "2.9.1"
   ansible_compatibility_mode: "2.0"
 
@@ -26,6 +27,7 @@
   guest_port1: 9200
   host_port1: 9200
   server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
   ansible_version: "2.9.1"
   ansible_compatibility_mode: "2.0"
 
@@ -41,5 +43,6 @@
   guest_port1: 9200
   host_port1: 9200
   server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
   ansible_version: "2.9.1" #ubuntu
   ansible_compatibility_mode: "2.0"
